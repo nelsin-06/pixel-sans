@@ -167,10 +167,64 @@ N8N automation interface will be available at `http://localhost:5678`
    # Just open index.html with Live Server
    ```
 
-3. **Open in browser**
+3. **Configure API Base URL**
+   
+   Update the frontend configuration to match your backend URL:
+   ```javascript
+   // Edit frontend/js/config/constants.js
+   export const APP_CONFIG = {
+       API: {
+           BASE_URL: 'http://localhost:8080', // Change if needed
+           // ...
+       }
+   };
+   ```
+   
+   **Important**: If you're running the backend on a different port or host, update the `BASE_URL` accordingly:
+   - **Docker**: Usually `http://localhost:8080` (default)
+   - **Local npm**: `http://localhost:8080` or your configured PORT
+   - **Production**: Update to your production domain
+
+4. **Open in browser**
    ```
    http://localhost:3000
    ```
+
+## 🤖 N8N Automation Workflows
+
+This project leverages N8N for automated content generation with AI-powered workflows:
+
+### Available Workflows
+
+1. **Generate Post Clickbait** (`Generate post clickbite.json`)
+   - Creates engaging titles and descriptions for posts
+   - Uses AI to generate click-worthy headlines
+   - Optimizes content for social media engagement
+
+2. **Generator Post Blog from Source** (`Generator post blog from a source.json`)
+   - Converts video content into blog posts
+   - Transcribes YouTube videos automatically
+   - Generates SEO-optimized blog content using OpenAI
+   - Creates structured posts with proper formatting
+
+### Workflow Features
+
+- **YouTube Integration**: Automatic video downloading and processing
+- **AI Content Generation**: OpenAI-powered content creation and optimization
+- **Automated Publishing**: Direct integration with the backend API
+- **Content Categorization**: Automatic tagging based on gaming categories (Roblox, Free Fire, Valorant, etc.)
+- **SEO Optimization**: Generated content includes meta descriptions, keywords, and structured data
+
+### N8N Setup
+
+The N8N instance is automatically configured with Docker Compose and includes:
+- **Basic Authentication**: Secured access with username/password
+- **API Integration**: Connected to the main backend API
+- **YouTube API**: For video metadata and processing
+- **OpenAI Integration**: For content generation and enhancement
+- **Timezone Configuration**: Set to America/Bogota
+
+Access N8N at `http://localhost:5678` with your configured credentials.
 
 ## 🔧 Development
 
@@ -193,24 +247,68 @@ The frontend uses vanilla JavaScript modules, so no build process is required. S
 ### Backend Required Variables
 
 ```bash
+# Database Configuration
 DATABASE_URL=mongodb://localhost:27017/pixelsans
+
+# Server Configuration
 PORT=8080
-OPENAI_API_KEY=your_openai_api_key
 ENV=development
+
+# AI Integration
+OPENAI_API_KEY=your_openai_api_key
+
+# YouTube Integration
 YOUTUBE_API_KEY=your_youtube_api_key
+
+# API Configuration
 API_URL=http://localhost:8080
+
+# N8N Automation Configuration
 N8N_BASIC_AUTH_USER=admin
 N8N_BASIC_AUTH_PASSWORD=password
 ```
+
+### Frontend Configuration
+
+The frontend API configuration is located in `frontend/js/config/constants.js`:
+
+```javascript
+export const APP_CONFIG = {
+    API: {
+        BASE_URL: 'http://localhost:8080', // Update this if backend runs on different port/host
+        // ...
+    }
+};
+```
+
+**Important**: Always ensure the frontend `BASE_URL` matches your backend configuration:
+- If backend runs on port 3000: change to `http://localhost:3000`
+- If using custom domain: change to your domain URL
+- If deploying separately: update to your backend's public URL
 
 ## 📝 API Documentation
 
 The backend provides a RESTful API with the following main features:
 
+### Core API Endpoints
+
 - **Post Management**: CRUD operations for blog posts
 - **Video Transcription**: YouTube video processing and content extraction
 - **Automated Content Generation**: AI-powered post creation from video sources
 - **Pagination**: Efficient data retrieval with pagination support
+
+### Automated Content Pipeline
+
+The project includes automated workflows powered by N8N that:
+
+1. **Monitor YouTube sources** for new gaming content
+2. **Extract and transcribe** video content using AI
+3. **Generate blog posts** with SEO optimization
+4. **Create engaging titles** and meta descriptions
+5. **Categorize content** automatically (Roblox, Free Fire, Valorant, Brawl Stars, etc.)
+6. **Publish directly** to the backend API
+
+This automation enables hands-free content generation, allowing the system to continuously create fresh gaming content without manual intervention.
 
 ## 🤝 Contributing
 

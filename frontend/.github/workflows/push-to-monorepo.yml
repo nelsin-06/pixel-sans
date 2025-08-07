@@ -1,0 +1,27 @@
+name: Push to monorepo
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  push-to-monorepo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout frontend repo
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "nelsongg2001.dev@gmail.com"
+          git config --global user.name "nelsin-06"
+
+      - name: Clone monorepo
+        run: |
+          git clone https://x-access-token:${{secrets.MONOREPO_TOKEN}}@github.com/nelsin-06/pixel-sans.git
+          cd pixel-sans
+          git remote add frontend https://github.com/nelsin-06/pixel-sans-frontend.git
+          git fetch frontend
+          git subtree pull --prefix=frontend frontend production --squash
+          git push origin main

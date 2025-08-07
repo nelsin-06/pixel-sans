@@ -6,7 +6,7 @@
 export const APP_CONFIG = {
     // API Configuration
     API: {
-        BASE_URL: 'http://localhost:8080',// 'https://api.pixel-sans.com',
+        BASE_URL: 'http://localhost:8080',
         ENDPOINTS: {
             POSTS: '/post',
             SEARCH: '/search'

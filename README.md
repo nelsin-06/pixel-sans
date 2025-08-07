@@ -223,3 +223,13 @@ The backend provides a RESTful API with the following main features:
 ## 📄 License
 
 This project is licensed under the UNLICENSED license.
+
+---
+
+## 🤝 Author
+
+**Nelson Gallego**  
+[GitHub](https://github.com/nelsin-06)  
+[LinkedIn](https://www.linkedin.com/in/nelson-gallego-tec-dev)
+
+---

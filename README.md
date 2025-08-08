@@ -201,11 +201,15 @@ This project leverages N8N for automated content generation with AI-powered work
    - Uses AI to generate click-worthy headlines
    - Optimizes content for social media engagement
 
+   ![Generate Post Clickbait Workflow](docs/images/post-engage.png)
+
 2. **Generator Post Blog from Source** (`Generator post blog from a source.json`)
    - Converts video content into blog posts
    - Transcribes YouTube videos automatically
    - Generates SEO-optimized blog content using OpenAI
    - Creates structured posts with proper formatting
+
+   ![Generator Post Blog from Source Workflow](docs/images/post-from-source.png)
 
 ### Workflow Features
 

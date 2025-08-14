@@ -1,225 +1,148 @@
-# PIXEL SANS
+# PIXEL SAN - Gaming Website Frontend
 
-A modern full-stack application for a gaming website featuring a NestJS backend API with video transcription capabilities and a vanilla JavaScript frontend with modular architecture.
+A modern gaming website frontend built with vanilla JavaScript ES6+ modules, semantic HTML, and modular CSS architecture.
 
-## 🏗️ Project Architecture
+## ✨ Key Features
 
-This project is structured as a monorepo with two main components:
-
-- **Backend**: NestJS API server with MongoDB, video transcription, and AI content generation
-- **Frontend**: Modern vanilla JavaScript application with modular architecture
-
-## 🚀 Features
-
-### Backend Features
-- **NestJS Framework**: Modern TypeScript server-side framework
-- **Video Transcription**: YouTube video processing and transcription capabilities
-- **AI Content Generation**: OpenAI integration for automated content creation
-- **MongoDB Integration**: Document-based database with Mongoose ODM
-- **Post Management**: Full CRUD operations for blog posts
-- **N8N Workflows**: Automated content generation workflows
-- **Docker Support**: Containerized deployment with Docker Compose
-- **Global Exception Handling**: Centralized error management
-- **Validation Pipes**: Automatic request validation
-
-### Frontend Features
-- **Modular ES6+ JavaScript**: Clean separation of concerns with dedicated modules
-- **Modern CSS Architecture**: Component-based styling with CSS custom properties
-- **Responsive Design**: Mobile-first approach with fluid layouts
-- **Accessibility First**: WCAG 2.1 AA compliant
-- **Dark/Light Theme**: Automatic system preference detection
-- **Progressive Enhancement**: Works without JavaScript, enhanced with it
-- **Performance Optimized**: Lazy loading and efficient DOM manipulation
+- **Modular JavaScript Architecture** - ES6+ modules with clean separation of concerns
+- **Responsive Design** - Mobile-first approach with CSS Grid/Flexbox
+- **Dark/Light Theme Support** - Automatic system preference detection with manual toggle
+- **Accessibility Compliant** - WCAG 2.1 AA standards with keyboard navigation
+- **Performance Optimized** - Lazy loading, intersection observers, efficient DOM manipulation
+- **Gaming-Focused** - Robux selector, post categories, search functionality
 
 ## 📁 Project Structure
 
 ```
-pixel-sans/
-├── backend/                  # NestJS API Server
-│   ├── src/
-│   │   ├── app.module.ts    # Main application module
-│   │   ├── main.ts          # Application entry point
-│   │   ├── common/          # Shared utilities and DTOs
-│   │   │   ├── dto/         # Data transfer objects
-│   │   │   ├── filters/     # Exception filters
-│   │   │   ├── helpers/     # Utility helpers
-│   │   │   └── interceptors/ # Response interceptors
-│   │   ├── config/          # Configuration files
-│   │   ├── database/        # Database module and configuration
-│   │   ├── post/            # Post management module
-│   │   │   ├── dto/         # Post-related DTOs
-│   │   │   ├── entities/    # Post entity definitions
-│   │   │   └── schema/      # Database schemas
-│   │   └── transcription-videos/ # Video transcription module
-│   ├── n8n/                # N8N automation workflows
-│   │   └── workflows/       # Workflow definitions
-│   ├── docker-compose.yml   # Docker services configuration
-│   ├── Dockerfile          # Container build instructions
-│   └── package.json        # Dependencies and scripts
-├── frontend/               # Vanilla JavaScript Frontend
-│   ├── assets/
-│   │   └── css/           # Modular CSS architecture
-│   │       ├── main.css   # CSS entry point
-│   │       ├── base.css   # Variables and resets
-│   │       ├── components.css # Component styles
-│   │       └── utilities.css  # Utility classes
-│   ├── js/
-│   │   ├── modules/       # Feature modules
-│   │   │   ├── theme.js   # Theme management
-│   │   │   ├── navigation.js # Navigation logic
-│   │   │   ├── notifications.js # Toast notifications
-│   │   │   ├── search.js  # Search functionality
-│   │   │   ├── robux.js   # Game-specific features
-│   │   │   ├── scroll-effects.js # Scroll animations
-│   │   │   └── accessibility.js # A11y enhancements
-│   │   ├── api/           # API integration
-│   │   │   ├── api-client.js # HTTP client
-│   │   │   ├── endpoints.js  # API endpoints
-│   │   │   └── pagination.js # Pagination logic
-│   │   ├── utils/         # Utility functions
-│   │   ├── config/        # Configuration
-│   │   └── main.js        # Application entry point
-│   ├── *.html            # HTML pages
-│   └── README.md         # Frontend documentation
-└── README.md             # This file
+frontend/
+├── assets/
+│   ├── css/                  # Stylesheets (base, components, utilities)
+│   └── images/               # Static image assets
+├── js/
+│   ├── config/               # App configuration and constants
+│   ├── utils/                # Helper functions and DOM utilities
+│   ├── modules/              # Feature modules (theme, navigation, search, etc.)
+│   ├── api/                  # API client, endpoints, pagination
+│   ├── *.js                  # Page-specific scripts
+│   └── main.js               # Application entry point
+├── *.html                    # HTML pages (index, category, post, legal, etc.)
+└── README.md
 ```
 
-## 🛠️ Backend Technology Stack
+## 🛠️ Tech Stack
 
-- **Framework**: NestJS (Node.js framework)
-- **Language**: TypeScript
-- **Database**: MongoDB with Mongoose ODM
-- **Video Processing**: youtube-dl, yt-dlp, FFmpeg
-- **AI Integration**: OpenAI API
-- **Automation**: N8N workflows
-- **Containerization**: Docker & Docker Compose
-- **Validation**: class-validator, class-transformer
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
+- **Styling**: CSS Grid, Flexbox, Custom Properties (CSS Variables)
+- **Architecture**: Modular ES6 modules, Event-driven design
+- **Performance**: Intersection Observer API, Lazy loading, Throttled events
+- **Accessibility**: ARIA attributes, Keyboard navigation, Screen reader support
 
-### Backend API Endpoints
+## 🚀 Quick Start
 
-- `POST /post` - Create new post
-- `GET /post` - Get paginated posts
-- `GET /post/:id` - Get post by ID
-- `PUT /post/:id` - Update post
-- `DELETE /post/:id` - Delete post
-- `POST /transcription-videos/transcribe` - Transcribe video
-- `POST /transcription-videos/video-to-post` - Convert video to post
-
-## 🎨 Frontend Technology Stack
-
-- **Language**: Vanilla JavaScript (ES6+)
-- **Styling**: CSS3 with Custom Properties
-- **Architecture**: Modular ES6 modules
-- **Build**: No build process required
-- **Responsive**: CSS Grid & Flexbox
-- **Accessibility**: WCAG 2.1 AA compliant
-
-## 🚀 Getting Started
-
-### Backend Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd pixel-sans/backend
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Environment setup**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Run with Docker (Recommended)**
-   ```bash
-   docker-compose up -d
-   ```
-
-5. **Or run locally**
-   ```bash
-   npm run start:dev
-   ```
-
-The backend will be available at `http://localhost:8080`
-N8N automation interface will be available at `http://localhost:5678`
-
-### Frontend Setup
-
-1. **Navigate to frontend directory**
-   ```bash
-   cd pixel-sans/frontend
-   ```
-
-2. **Serve with any static server**
+### Development Setup
+1. **Serve the files with any static server**:
    ```bash
    # Using Python
-   python3 -m http.server 3000
+   python -m http.server 8000
    
-   # Using Node.js serve
+   # Using Node.js
    npx serve .
    
-   # Using Live Server (VS Code extension)
-   # Just open index.html with Live Server
+   # Using VS Code Live Server extension
    ```
 
-3. **Open in browser**
-   ```
-   http://localhost:3000
-   ```
+2. **Open browser** to `http://localhost:8000`
 
-## 🔧 Development
+### Browser Requirements
+- Modern browsers with ES6+ module support
+- Chrome 61+, Firefox 60+, Safari 11+, Edge 16+
 
-### Backend Development
+## 🎨 Core Features
 
-- **Development mode**: `npm run start:dev`
-- **Production build**: `npm run build`
-- **Production start**: `npm run start:prod`
+### Theme System
+- Auto-detects system preference (dark/light)
+- Manual toggle with smooth transitions
+- Persistent user preference storage
 
-### Frontend Development
+### Gaming Elements
+- Robux selector with validation
+- Game category navigation
+- Post detail views with rich content
+- Search functionality across content
 
-The frontend uses vanilla JavaScript modules, so no build process is required. Simply edit files and refresh the browser. For optimal development experience:
+### Responsive Design
+- Mobile-first approach
+- Fluid layouts with CSS Grid/Flexbox
+- Optimized for touch interactions
 
-1. Use a local server (not file:// protocol)
-2. Enable browser dev tools
-3. Use the browser's module debugger
+## ⚙️ Configuration
 
-## 🌐 Environment Variables
-
-### Backend Required Variables
-
-```bash
-DATABASE_URL=mongodb://localhost:27017/pixelsans
-PORT=8080
-OPENAI_API_KEY=your_openai_api_key
-ENV=development
-YOUTUBE_API_KEY=your_youtube_api_key
-API_URL=http://localhost:8080
-N8N_BASIC_AUTH_USER=admin
-N8N_BASIC_AUTH_PASSWORD=password
+### API Integration
+Configure endpoints in `js/config/constants.js`:
+```javascript
+export const API_CONFIG = {
+  BASE_URL: 'https://your-api.com',
+  ENDPOINTS: {
+    POSTS: '/api/posts',
+    CATEGORIES: '/api/categories'
+  }
+};
 ```
 
-## 📝 API Documentation
+### Theming
+Customize design tokens in `assets/css/base.css`:
+```css
+:root {
+  --primary-color: #2dd4bf;
+  --secondary-color: #ef4444;
+  --font-family: 'Inter', sans-serif;
+}
+```
 
-The backend provides a RESTful API with the following main features:
+## 📈 Performance & SEO
 
-- **Post Management**: CRUD operations for blog posts
-- **Video Transcription**: YouTube video processing and content extraction
-- **Automated Content Generation**: AI-powered post creation from video sources
-- **Pagination**: Efficient data retrieval with pagination support
+### Performance Targets
+- **Bundle Size**: ~25KB total (JS + CSS, gzipped)
+- **First Contentful Paint**: < 1.5s
+- **Lighthouse Score**: 90+ across all metrics
 
-## 🤝 Contributing
+### SEO Features
+- Semantic HTML structure
+- Meta tags and Open Graph support
+- Proper heading hierarchy
+- Alt text for images
+- Clean, crawlable URLs
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit changes: `git commit -am 'Add feature'`
-4. Push to branch: `git push origin feature-name`
-5. Submit a pull request
+## 🤝 Development
 
-## 📄 License
+### Code Style
+- ES6+ modern JavaScript
+- Mobile-first responsive CSS
+- Component-based architecture
+- Accessibility-first approach
 
-This project is licensed under the UNLICENSED license.
+### Adding Features
+1. Create module in appropriate `js/` directory
+2. Export functionality with clear API
+3. Import and initialize in `main.js`
+4. Add corresponding CSS styles
+5. Test across browsers and devices
+
+### Project Pages
+- **index.html** - Homepage with featured content
+- **category.html** - Game category listings
+- **post.html** - Blog post listings with pagination
+- **post-detail.html** - Individual post view
+- **contacto.html** - Contact page
+- **Legal pages** - Privacy, terms, legal notice
+
+## 📞 Support
+
+- Check browser console for errors
+- Verify ES6+ module support
+- Ensure proper file paths for assets
+- Test responsive design on mobile devices
+
+---
+
+**Built for the gaming community** 🎮
